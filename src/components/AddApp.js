@@ -74,7 +74,7 @@ class AddApp extends Component {
   }
 
   handleFileClick (file) {
-    axios.get(`http://localhost:3001/users/app/get-code?filePath=${file.path}`)
+    axios.get(`http://138.197.29.193:3001/users/app/get-code?filePath=${file.path}`)
     .then(res => this.setState({
       fileData: res.data,
       redirectToRefferer: true
@@ -126,7 +126,7 @@ class AddApp extends Component {
     data.append('file', imagedata);
     if (file) {
       this.setState({ isPosting: true });
-      axios.post('http://localhost:3001/users/app', data)
+      axios.post('http://138.197.29.193:3001/users/app', data)
       .then(res => {
         this.setState({directory: res.data, isDecompiling: false});
       })

@@ -25,7 +25,7 @@ class MyPosts extends Component {
     if (!Array.isArray(nextProps.posts)) {
       const id = nextProps.posts.user[0]._id;
       if (nextProps.selectedSession !== this.props.selectedSession) {
-        fetch(`http://localhost:3001/users/tutorial/${id}`, {
+        fetch(`http://138.197.29.193:3001/users/tutorial/${id}`, {
           method: 'GET',
           credentials: 'include'
         })

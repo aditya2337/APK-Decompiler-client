@@ -24,7 +24,7 @@ class Home extends Component {
   componentWillReceiveProps (nextProps) {
     if (!Array.isArray(nextProps.posts)) {
       console.log(nextProps);
-      fetch(`http://localhost:3001/users/`, {
+      fetch(`http://138.197.29.193:3001/users/`, {
         method: 'GET',
         credentials: 'include'
       })
