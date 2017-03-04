@@ -1,0 +1,24 @@
+.tutorial {
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.tutorial img {
+  height: 100px;
+}
+
+.tutorial-media {
+  position: relative !important;
+  padding: 5px !important;
+}
+
+.tutorial-media span {
+  font-size: 12px !important;
+}
+
+.tutorial a:hover {
+  text-decoration: none;
+}
