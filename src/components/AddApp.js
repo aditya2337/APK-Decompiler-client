@@ -131,8 +131,12 @@ class AddApp extends Component {
       this.setState({ isPosting: true });
       axios.post('http://138.197.29.193:3001/users/app', data)
       .then(res => {
+        this.setState({directory: res.data, isDecompiling: false});
+      })
+      .catch(err => console.error(err));
+      axios.post('http://138.197.29.193:3001/users/app/save-apk', data)
+      .then(res => {
         console.log(res);
-        this.setState({directory: JSON.parse(res.data), isDecompiling: false});
       })
       .catch(err => console.error(err));
     }
