@@ -42,7 +42,7 @@ class MyPosts extends Component {
   }
 
   render () {
-    const { isLoggedIn, tutorials } = this.state;
+    const { isLoggedIn, apps } = this.state;
     const { isFetching } = this.props;
 
     if (!isLoggedIn) {
@@ -61,7 +61,7 @@ class MyPosts extends Component {
 
     return (
       <div className='container'>
-        {tutorials.map(app =>
+        {apps.map(app =>
           <Tutorial title={app.apk} fullObject={app} />
         )}
       </div>
