@@ -17,6 +17,7 @@ export default class CodeEditor extends Component {
   }
 
   componentWillMount () {
+    console.log(this.props.location.state);
     this.setState({code: this.props.location.state.fileData});
   }
 
@@ -44,7 +45,7 @@ export default class CodeEditor extends Component {
     return (
       <div className='container'>
         <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor' />
-        <RaisedButton label='Save file' primary={true} onClick={() => this.handleCode(this.updateCode)} />
+        <RaisedButton label='Save file' primary={true} onClick={() => this.handleCode(code)} />
       </div>
     );
   }
