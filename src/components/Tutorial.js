@@ -17,19 +17,20 @@ export default class Tutorial extends Component {
     console.log(this.props);
     const { fullObject } = this.props;
     axios.get(`http://138.197.29.193:3001/users/app/view?file=${fullObject.apk}&userId=${fullObject.userId}`)
-      .then(res => console.log(res))
+      .then(res => this.setState({fileDirectory: res.data}))
       .catch(err => console.log(err))
     ;
   }
 
   render () {
-    const { title, fullObject } = this.props;
+    const { title } = this.props;
+    const { fileDirectory } = this.state;
     return (
       <Link to={{
         pathname: '/view-tutorial',
         hash: title,
-        state: fullObject
-      }}><Card  >
+        state: fileDirectory
+      }}><Card>
         <CardTitle title={title} />
       </Card></Link>
     );

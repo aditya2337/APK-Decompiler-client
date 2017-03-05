@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FileTree from './FileTree';
 
 export default class TuroialView extends Component {
   componentWillMount () {
@@ -6,20 +7,10 @@ export default class TuroialView extends Component {
   }
 
   render () {
-    const { location } = this.props;
+    const { fileDirectory } = this.props.location.state;
 
     return (
-      <div>
-        <div>
-          <img src={location.state.image} />
-        </div>
-        <div>
-          <a href={location.state.liveDemoLink}>Live link</a>
-        </div>
-        <div>
-          <a href={location.state.githubLink}>Github link</a>
-        </div>
-      </div>
+      <FileTree directory={fileDirectory} />
     );
   }
 }
