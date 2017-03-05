@@ -25,13 +25,12 @@ class MyPosts extends Component {
     if (!Array.isArray(nextProps.posts)) {
       const id = nextProps.posts.user[0]._id;
       if (nextProps.selectedSession !== this.props.selectedSession) {
-        fetch(`http://138.197.29.193:3001/users/tutorial/${id}`, {
+        fetch(`http://138.197.29.193:3001/users/app/my-apps/${id}`, {
           method: 'GET',
           credentials: 'include'
         })
         .then(response => response.json())
         .then(json => {
-          this.setState({ tutorials: json.tutorials });
           console.log(json);
         });
       }
