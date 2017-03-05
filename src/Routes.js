@@ -68,7 +68,7 @@ class Routes extends Component {
             <Route path='/register' component={Register} />
             <Route path='/add-app' component={AddApp} />
             <Route path='/my-apps' component={MyPosts} />
-            <Route path='/view-tutorial' component={TutorialView} />
+            <Route path='/view-app' component={TutorialView} />
             <Route path='/edit-file' component={CodeEditor} />
             <PrivateRoute path='/home' component={Home} />
           </div>

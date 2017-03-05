@@ -20,7 +20,9 @@ export default class CodeEditor extends Component {
 
   componentWillMount () {
     console.log(this.props.location.state);
-    this.setState({code: this.props.location.state.fileData});
+    if (this.props.location.state) {
+      this.setState({code: this.props.location.state.fileData});
+    }
   }
 
   updateCode (newCode) {
@@ -53,9 +55,9 @@ export default class CodeEditor extends Component {
     }
 
     return (
-      <div className='container'>
-        <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor' />
-        <RaisedButton label='Save file' primary={true} onClick={() => this.handleCode(code)} />
+      <div className='container flex fl-dir-col'>
+        <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor fl-wd' />
+        <RaisedButton label='Save file' primary={true} onClick={() => this.handleCode(code)} className='mt-20' />
       </div>
     );
   }
