@@ -22,11 +22,10 @@ class Home extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-      if (!nextProps.posts.authenticated) {
-        this.setState({ isLoggedIn: false });
-      }
-      Authenticate.isFetching = nextProps.isFetching;
+    if (!nextProps.posts.authenticated) {
+      this.setState({ isLoggedIn: false });
     }
+    Authenticate.isFetching = nextProps.isFetching;
   }
 
   render () {
