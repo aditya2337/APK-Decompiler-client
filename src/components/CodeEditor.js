@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CodeMirror from 'react-codemirror';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import '../../node_modules/codemirror/lib/codemirror.css';
 import '../../public/css/CodeEditor.css';
@@ -9,7 +10,8 @@ export default class CodeEditor extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      code: '//code'
+      code: '//code',
+      redirectToRefferer: false
     };
 
     this.updateCode = this.updateCode.bind(this);
@@ -30,7 +32,7 @@ export default class CodeEditor extends Component {
   handleCode (code) {
     const { selectedFile } = this.props.location.state;
     axios.post(`http://138.197.29.193:3002/users/app/save-code?updatedCode=${code}&filePath=${selectedFile}`)
-      .then(res => console.log(res))
+      .then(res => this.setState({redirectToRefferer: true}))
       .catch(err => console.error(err))
     ;
   }
@@ -40,7 +42,13 @@ export default class CodeEditor extends Component {
       lineNumbers: true
     };
 
-    const { code } = this.state;
+    const { code, redirectToRefferer } = this.state;
+
+    if (redirectToRefferer) {
+      return (
+        <Redirect to='/my-apps' />
+      );
+    }
 
     return (
       <div className='container'>
