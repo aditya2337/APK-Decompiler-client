@@ -58,7 +58,8 @@ class MyPosts extends Component {
     }
 
     return (
-      <div className='container'>
+      <div className='container flex'>
+        <h2>Your uploaded apps</h2>
         {apps.map(app =>
           <Tutorial title={app.apk} fullObject={app} />
         )}

@@ -25,7 +25,7 @@ export default class Tutorial extends Component {
     const { title } = this.props;
     const { fileDirectory } = this.state;
     return (
-      <div>
+      <div className='mt-20'>
         <Link to={{
           pathname: '/view-tutorial',
           hash: title,
