@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { fetchSessionIfNeeded } from '../store/actions';
 import CircularProgress from 'material-ui/CircularProgress';
 import Tutorial from './Tutorial';
+import '../../public/css/Home.css';
 
 class Home extends Component {
   constructor (props) {
@@ -40,7 +41,7 @@ class Home extends Component {
 
     if (isFetching) {
       return (
-        <div className='container'>
+        <div className='flex sc-size'>
           <CircularProgress size={80} thickness={5} />
         </div>
       );
@@ -48,9 +49,19 @@ class Home extends Component {
 
     return (
       <div className='container'>
-        {tutorials.map(tutorial =>
-          <Tutorial title={tutorial.title} imgURI={tutorial.image} key={tutorial._id} fullObject={tutorial} />
-        )}
+        <div className='flex heading'>
+          <h1>Welcome to Apk Decompiler</h1>
+        </div>
+        <div className='container'>
+          <div className='bl flex image'>
+            <img src='https://lh5.ggpht.com/x9yUAL4iKMviNVeSgZeob7kFi3xGUnnaGd5yHcC3FGPQFSDk77op85go4i8MvL4hauk=w300' />
+          </div>
+          <div className='flex text'>
+            All applications for Android phones are distributed as APK Files.
+            These files contain all the code, images and other media necessary to run the application on your phone.
+            This website will decompile the code embedded in APK files and extract all the other assets in the file.
+          </div>
+        </div>
       </div>
     );
   }

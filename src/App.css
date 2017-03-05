@@ -18,6 +18,45 @@
   font-size: large;
 }
 
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.fld-width {
+  width: 20vw;
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.flex-child {
+  justify-content: center;
+  align-items: center;
+}
+
+.fl-wd {
+  width: 100%;
+}
+
+.tc {
+  text-align: center;
+}
+
+.sc-size {
+  height: 80vh;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

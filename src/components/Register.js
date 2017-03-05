@@ -21,13 +21,13 @@ class Register extends Component {
     this.handleSignup = this.handleSignup.bind(this);
   }
 
-  // static propTypes = {
-  //   selectedSession: PropTypes.bool.isRequired,
-  //   posts: PropTypes.array.isRequired,
-  //   isFetching: PropTypes.bool.isRequired,
-  //   lastUpdated: PropTypes.number,
-  //   dispatch: PropTypes.func.isRequired
-  // }
+  static propTypes = {
+    selectedSession: PropTypes.bool.isRequired,
+    posts: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    lastUpdated: PropTypes.number,
+    dispatch: PropTypes.func.isRequired
+  }
 
   handleSignup (e) {
     e.preventDefault();
@@ -138,9 +138,12 @@ class Register extends Component {
     // }
 
     return (
-      <div className='container-fluid'>
-        <div className='row'>
+      <div className='container'>
+        <div className='row tc flex sc-size'>
           <div className='col-md-6'>
+            <div className='flex mt-50'>
+              <h1>Register Now!</h1>
+            </div>
             <form onSubmit={this.handleSignup}>
               <div>
                 <TextField
@@ -148,6 +151,7 @@ class Register extends Component {
                   floatingLabelText='First Name'
                   ref='firstName'
                   errorText={this.state._firstName}
+                  style={{width: 500}}
                 />
               </div>
               <div>
@@ -156,6 +160,7 @@ class Register extends Component {
                   floatingLabelText='Last Name'
                   ref='lastName'
                   errorText={this.state._lastName}
+                  style={{width: 500}}
                 />
               </div>
               <div>
@@ -164,6 +169,7 @@ class Register extends Component {
                   floatingLabelText='Email'
                   ref='username'
                   errorText={this.state._username}
+                  style={{width: 500}}
                 />
               </div>
               <div>
@@ -173,6 +179,7 @@ class Register extends Component {
                   ref='password'
                   type='password'
                   errorText={this.state._password}
+                  style={{width: 500}}
                 />
               </div>
               <div>
@@ -182,10 +189,11 @@ class Register extends Component {
                   ref='password2'
                   type='password'
                   errorText={this.state._password2}
+                  style={{width: 500}}
                 />
               </div>
-              <div className='form-group'>
-                <RaisedButton type='submit' label='Register' primary={true} />
+              <div className='form-group mt-50'>
+                <RaisedButton type='submit' label='Register' primary={true} style={{width: 500}} />
               </div>
             </form>
           </div>

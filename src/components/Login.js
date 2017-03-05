@@ -17,7 +17,7 @@ class Login extends Component {
     };
     this.login = this.login.bind(this);
   }
-  
+
   static propTypes = {
     selectedSession: PropTypes.bool.isRequired,
     posts: PropTypes.array.isRequired,
@@ -61,22 +61,26 @@ class Login extends Component {
 
     if (isFetching) {
       return (
-        <div className='container'>
+        <div className='flex sc-size'>
           <CircularProgress size={80} thickness={5} />
         </div>
       );
     }
 
     return (
-      <div className='container-fluid'>
-        <div className='row'>
+      <div className='container'>
+        <div className='row tc flex sc-size'>
           <div className='col-md-6' id='contactForm'>
+            <div className='flex text'>
+              <h1>Login to Continue</h1>
+            </div>
             <form onSubmit={this.login}>
               <div className='form-group'>
                 <TextField
                   hintText='abc@abc.com'
                   floatingLabelText='Email'
                   ref='username'
+                  style={{width: 500}}
                 />
               </div>
               <div className='form-group'>
@@ -85,10 +89,11 @@ class Login extends Component {
                   floatingLabelText='Password'
                   ref='password'
                   type='password'
+                  style={{width: 500}}
                 />
               </div>
-              <div className='form-group'>
-                <RaisedButton type='submit' label='Log In' primary={true} />
+              <div className='form-group mt-50'>
+                <RaisedButton type='submit' label='Log In' primary={true} style={{width: 500}} />
               </div>
             </form>
           </div>

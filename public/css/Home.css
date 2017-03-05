@@ -1,0 +1,21 @@
+.heading {
+  height: 200px;
+}
+
+.text {
+  text-align: center;
+  height: 200px;
+  font-size: 20px;
+}
+
+.bl {
+  display: block;
+}
+
+.image {
+  height: 200px;
+}
+
+.image img {
+  max-height: 150px;
+}
