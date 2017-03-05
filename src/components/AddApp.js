@@ -119,7 +119,7 @@ class AddApp extends Component {
 
   saveApkFile (file, userId) {
     console.log(file.name);
-    axios.post(`http://138.197.29.193:3001/users/app/save-apk?file=${file}&userId=${userId}`)
+    axios.post(`http://138.197.29.193:3001/users/app/save-apk?file=${file.name}&userId=${userId}`)
     .then(res => {
       console.log(res);
     })
