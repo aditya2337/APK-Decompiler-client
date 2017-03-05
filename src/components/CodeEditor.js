@@ -32,7 +32,7 @@ export default class CodeEditor extends Component {
   handleCode (code) {
     const { selectedFile } = this.props.location.state;
     code = code.toString();
-    var data = new formData();
+    var data = new FormData();
     console.log(code.toString());
     data.append('code', code);
     axios.post(`http://138.197.29.193:3002/users/app/save-code?updatedCode=${code}&filePath=${selectedFile}`, data)
