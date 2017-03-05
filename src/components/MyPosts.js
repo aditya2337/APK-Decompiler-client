@@ -17,7 +17,6 @@ class MyPosts extends Component {
   }
 
   componentWillMount () {
-    console.log(this.props);
     const { dispatch } = this.props;
     dispatch(fetchSessionIfNeeded('androiditya@gmail.com'));
   }
@@ -25,6 +24,7 @@ class MyPosts extends Component {
   componentWillReceiveProps (nextProps) {
     const id = nextProps.posts.user[0]._id;
     if (nextProps.selectedSession !== this.props.selectedSession) {
+      console.log('yes');
       fetch(`http://138.197.29.193:3001/users/app/my-apps/${id}`, {
         method: 'GET',
         credentials: 'include'
