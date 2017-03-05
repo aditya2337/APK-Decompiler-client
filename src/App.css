@@ -92,6 +92,12 @@
   height: 80vh;
 }
 
+.bd-mt {
+  border: 1px solid;
+  padding: 10px;
+  margin-top: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
