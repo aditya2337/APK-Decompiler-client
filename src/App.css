@@ -85,6 +85,10 @@
   justify-content: space-between;
 }
 
+.upload-form {
+  border-right: 1px solid;
+}
+
 .sc-size {
   height: 80vh;
 }
