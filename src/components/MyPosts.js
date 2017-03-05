@@ -24,7 +24,7 @@ class MyPosts extends Component {
   componentWillReceiveProps (nextProps) {
     const id = nextProps.posts.user[0]._id;
     console.log('yes');
-    fetch(`http://138.197.29.193:3001/users/app/my-apps/${id}`, {
+    fetch(`http://138.197.29.193:3001/users/app/my-apps?userId=${id}`, {
       method: 'GET',
       credentials: 'include'
     })
