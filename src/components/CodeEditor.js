@@ -33,7 +33,6 @@ export default class CodeEditor extends Component {
 
   handleCode (code) {
     const { selectedFile } = this.props.location.state;
-    code = [code];
     var data = new FormData();
     axios.post(`http://138.197.29.193:3002/users/app/save-code?updatedCode=${code}&filePath=${selectedFile}`, data)
       .then(res => this.setState({redirectToRefferer: true}))
