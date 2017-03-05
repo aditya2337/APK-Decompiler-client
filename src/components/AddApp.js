@@ -6,6 +6,7 @@ import axios from 'axios';
 import CircularProgress from 'material-ui/CircularProgress';
 import FileTree from './FileTree';
 import 'react-nested-file-tree/dist/default.css';
+import '../../public/css/AddApp.css';
 
 class AddApp extends Component {
   constructor (props) {
@@ -21,7 +22,9 @@ class AddApp extends Component {
       directory: null,
       redirectToRefferer: false,
       fileData: null,
-      isDecompiling: false
+      isDecompiling: false,
+      err: null,
+      isErr: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,32 +51,43 @@ class AddApp extends Component {
   handleSubmit (e) {
     e.preventDefault();
     console.log(this.props.posts.user[0]._id);
-    this.setState({isDecompiling: true});
     const file = this.refs;
     const userId = this.props.posts.user[0]._id;
     let data = new FormData();
     const fileData = document.querySelector("input[type='file']").files[0];
     data.append('file', fileData);
     data.append('userId', userId);
-    if (file) {
-      this.setState({ isPosting: true });
+    if (fileData) {
+      this.setState({ isPosting: true, isDecompiling: true });
       axios.post('http://138.197.29.193:3002/users/app', data)
       .then(res => {
         this.setState({directory: res.data, isDecompiling: false});
         this.saveApkFile(fileData, userId);
       })
       .catch(err => console.error(err));
+    } else {
+      this.setState({err: 'Please select a file to upload', isErr: true});
     }
   }
 
   render () {
-    const { isPosting, isPosted, directory, isDecompiling } = this.state;
+    const { isPosting, isPosted, directory, isDecompiling, isErr, err } = this.state;
     const { isFetching } = this.props;
     const fileStructure = (isDecompiling) ? (
-      <h1>Please wait while we decompile your app..</h1>
+      <CircularProgress size={80} thickness={3} />
     ) : (
-      <FileTree directory={directory} />
+      <div>
+        <h3>Your directory structure shows here</h3>
+        <FileTree directory={directory} />
+      </div>
     );
+
+    const errorMessage = (isErr) ? (
+      <h1>{err}</h1>
+    ) : (
+      {err}
+    );
+
     const { from } = { from: { pathname: '/my-posts' } };
     if (isPosted) {
       return (
@@ -81,17 +95,17 @@ class AddApp extends Component {
       );
     }
 
-    if (isFetching) {
-      return (
-        <div className='flex sc-size'>
-          <CircularProgress size={80} thickness={5} />
-        </div>
-      );
-    }
+    // if (isFetching) {
+    //   return (
+    //     <div className='flex sc-size'>
+    //       <CircularProgress size={80} thickness={5} />
+    //     </div>
+    //   );
+    // }
 
     return (
-      <div className='container'>
-        <div className='row tc flex-jc sc-size'>
+      <div className='container flex'>
+        <div className='row tc flex-jc sc-size fl-wd-50 upload-form'>
           <div className='col-md-6'>
             <div className='flex mt-50 text'>
               <h1>Upload a new apk file</h1>
@@ -99,7 +113,7 @@ class AddApp extends Component {
             <form onSubmit={this.handleSubmit}
               encType='multipart/form-data'
               method='post'
-              className='fl-dir flex text'>
+              className='fl-dir-col flex text'>
               <div className='form-group'>
                 <input
                   type='file'
@@ -114,7 +128,7 @@ class AddApp extends Component {
             </form>
           </div>
         </div>
-        <div className='tc flex'>
+        <div className='flex fl-wd-50'>
           {fileStructure}
         </div>
       </div>

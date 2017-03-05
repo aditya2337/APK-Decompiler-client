@@ -47,7 +47,12 @@
   justify-content: center;
 }
 
-.fl-dir {
+.fl-dir-col {
+  flex-direction: column;
+}
+
+.fl-dir-row {
+  display: flex;
   flex-direction: column;
 }
 
@@ -62,6 +67,10 @@
 
 .fl-wd {
   width: 100%;
+}
+
+.fl-wd-50 {
+  width: 50%;
 }
 
 .tc {
