@@ -28,7 +28,7 @@ export default class CodeEditor extends Component {
 
   handleCode (code) {
     const { filePath } = this.props.location.state;
-    axios.post(`http://138.197.29.193:3001/users/app/save-code?updatedCode=${code}&filePath=${filePath}`)
+    axios.post(`http://138.197.29.193:3002/users/app/save-code?updatedCode=${code}&filePath=${filePath}`)
       .then(res => console.log(res))
       .catch(err => console.error(err))
     ;

@@ -61,7 +61,7 @@ function userLogOut (email, json) {
 
 const fetchSession = (username) => dispatch => {
   dispatch(requestSession(username));
-  return fetch(`http://138.197.29.193:3001/users/home`, {
+  return fetch(`http://138.197.29.193:3002/users/home`, {
     method: 'GET',
     credentials: 'include'
   })
@@ -74,7 +74,7 @@ const fetchSession = (username) => dispatch => {
 
 const authenticateUser = (username, password) => dispatch => {
   dispatch(requestSession(username));
-  return fetch(`http://138.197.29.193:3001/users/login?username=${username}&password=${password}`, {
+  return fetch(`http://138.197.29.193:3002/users/login?username=${username}&password=${password}`, {
     method: 'POST',
     credentials: 'include'
   })
@@ -87,7 +87,7 @@ const authenticateUser = (username, password) => dispatch => {
 
 const registerUser = (username, password, fname, lname) => dispatch => {
   dispatch(requestSession(username));
-  return fetch(`http://138.197.29.193:3001/users/signup?username=${username}&password=${password}&first_name=${fname}&last_name=${lname}`, {
+  return fetch(`http://138.197.29.193:3002/users/signup?username=${username}&password=${password}&first_name=${fname}&last_name=${lname}`, {
     method: 'POST',
     credentials: 'include'
   })
@@ -101,7 +101,7 @@ const registerUser = (username, password, fname, lname) => dispatch => {
 
 const signOutUser = (username) => dispatch => {
   dispatch(requestSession(username));
-  return fetch(`http://138.197.29.193:3001/users/logout`, {
+  return fetch(`http://138.197.29.193:3002/users/logout`, {
     method: 'GET',
     credentials: 'include'
   })

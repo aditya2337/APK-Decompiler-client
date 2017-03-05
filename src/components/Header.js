@@ -87,7 +87,7 @@ class Header extends Component {
       <div>
         <MenuItem onTouchTap={this.handleClose} containerElement={<Link to='/login' />}>Log In</MenuItem>
         <MenuItem onTouchTap={this.handleClose} containerElement={<Link to='/register' />}>Register</MenuItem>
-        <MenuItem><a href='http://138.197.29.193:3001/users/auth/twitter'>Log In/Sign Up with twitter</a></MenuItem>
+        <MenuItem><a href='http://138.197.29.193:3002/users/auth/twitter'>Log In/Sign Up with twitter</a></MenuItem>
       </div>
     );
 

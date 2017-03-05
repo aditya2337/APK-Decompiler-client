@@ -15,7 +15,7 @@ export default class Tutorial extends Component {
 
   componentWillMount () {
     const { fullObject } = this.props;
-    axios.get(`http://138.197.29.193:3001/users/app/view?file=${fullObject.apk}&userId=${fullObject.userId}`)
+    axios.get(`http://138.197.29.193:3002/users/app/view?file=${fullObject.apk}&userId=${fullObject.userId}`)
       .then(res => this.setState({fileDirectory: res.data}))
       .catch(err => console.log(err))
     ;
