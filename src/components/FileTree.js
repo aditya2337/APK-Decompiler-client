@@ -7,7 +7,9 @@ export default class FileTree extends Component {
     super(props);
 
     this.state = {
-      selectedFile: 'some_folder/some_file'
+      selectedFile: 'some_folder/some_file',
+      fileData: '//code',
+      redirectToRefferer: false
     };
 
     this.handleFileClick = this.handleFileClick.bind(this);
