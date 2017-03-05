@@ -25,13 +25,17 @@ export default class Tutorial extends Component {
     const { title } = this.props;
     const { fileDirectory } = this.state;
     return (
-      <Link to={{
-        pathname: '/view-tutorial',
-        hash: title,
-        state: fileDirectory
-      }}><Card>
-        <CardTitle title={title} />
-      </Card></Link>
+      <div>
+        <Link to={{
+          pathname: '/view-tutorial',
+          hash: title,
+          state: fileDirectory
+        }}>
+          <Card>
+            <CardTitle title={title} />
+          </Card>
+        </Link>
+      </div>
     );
   }
 }

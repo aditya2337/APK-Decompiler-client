@@ -36,6 +36,21 @@
   width: 20vw;
 }
 
+
+.flex-align {
+  display: flex;
+  align-items: center;
+}
+
+.flex-jc {
+  display: flex;
+  justify-content: center;
+}
+
+.fl-dir {
+  flex-direction: column;
+}
+
 .flex-parent {
   display: flex;
 }
@@ -51,6 +66,14 @@
 
 .tc {
   text-align: center;
+}
+
+.mg-auto {
+  margin: 0 auto;
+}
+
+.sb {
+  justify-content: space-between;
 }
 
 .sc-size {

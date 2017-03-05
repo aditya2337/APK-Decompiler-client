@@ -51,7 +51,7 @@ class MyPosts extends Component {
 
     if (isFetching) {
       return (
-        <div className='container'>
+        <div>
           <CircularProgress size={80} thickness={5} />
         </div>
       );

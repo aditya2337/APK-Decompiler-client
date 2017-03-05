@@ -83,29 +83,40 @@ class AddApp extends Component {
 
     if (isFetching) {
       return (
-        <div className='container'>
+        <div className='flex sc-size'>
           <CircularProgress size={80} thickness={5} />
         </div>
       );
     }
 
     return (
-      <div className='container-fluid'>
-        <div className='row'>
+      <div className='container'>
+        <div className='row tc flex-jc sc-size'>
           <div className='col-md-6'>
-            <form onSubmit={this.handleSubmit} encType='multipart/form-data' method='post'>
-              <input
-                type='file'
-                multiple={this.props.multi}
-                ref='file'
-                accept={this.props.accept} />
+            <div className='flex mt-50 text'>
+              <h1>Upload a new apk file</h1>
+            </div>
+            <form onSubmit={this.handleSubmit}
+              encType='multipart/form-data'
+              method='post'
+              className='fl-dir flex text'>
               <div className='form-group'>
+                <input
+                  type='file'
+                  multiple={this.props.multi}
+                  ref='file'
+                  accept={this.props.accept}
+                  className='btn btn-primary' />
+              </div>
+              <div className='form-group mt-20'>
                 <RaisedButton type='submit' label='Add Apk' primary={true} />
               </div>
             </form>
           </div>
         </div>
-        {fileStructure}
+        <div className='tc flex'>
+          {fileStructure}
+        </div>
       </div>
     );
   }
