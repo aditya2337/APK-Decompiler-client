@@ -77,7 +77,7 @@ class AddApp extends Component {
       <CircularProgress size={80} thickness={3} />
     ) : (
       <div>
-        <h3>Your directory structure shows here</h3>
+        <h3>Your directory structure shows here:</h3>
         <FileTree directory={directory} />
       </div>
     );
