@@ -56,7 +56,6 @@ class Header extends Component {
 
   handletitletouch (e) {
     e.preventDefault();
-    console.log('title touched');
   }
 
   handleLogout (e) {

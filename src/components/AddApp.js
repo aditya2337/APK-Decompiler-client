@@ -119,6 +119,7 @@ class AddApp extends Component {
 
   handleSubmit (e) {
     e.preventDefault();
+    console.log(this.props);
     this.setState({isDecompiling: true});
     const file = this.refs;
     let data = new FormData();

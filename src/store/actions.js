@@ -80,7 +80,6 @@ const authenticateUser = (username, password) => dispatch => {
   })
     .then(response => response.json())
     .then(json => {
-      console.log(json);
       dispatch(authUser(username, json));
       dispatch(selectState(json.authenticated));
     });
@@ -108,7 +107,6 @@ const signOutUser = (username) => dispatch => {
   })
     .then(response => response.json())
     .then(json => {
-      console.log(json);
       dispatch(userLogOut(username, json));
       dispatch(selectState(json.authenticated));
     });
