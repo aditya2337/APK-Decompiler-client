@@ -117,6 +117,15 @@ class AddApp extends Component {
     );
   }
 
+  saveApkFile (file, userId) {
+    console.log(file);
+    axios.post(`http://138.197.29.193:3001/users/app/save-apk?file=${file}&userId=${userId}`)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.error(err));
+  }
+
   handleSubmit (e) {
     e.preventDefault();
     console.log(this.props.posts.user[0]._id);
@@ -124,20 +133,15 @@ class AddApp extends Component {
     const file = this.refs;
     const userId = this.props.posts.user[0]._id;
     let data = new FormData();
-    const imagedata = document.querySelector("input[type='file']").files[0];
-    data.append('file', imagedata);
+    const fileData = document.querySelector("input[type='file']").files[0];
+    data.append('file', fileData);
     data.append('userId', userId);
     if (file) {
       this.setState({ isPosting: true });
       axios.post('http://138.197.29.193:3001/users/app', data)
       .then(res => {
         this.setState({directory: res.data, isDecompiling: false});
-        this.saveApkFile(data);
-      })
-      .catch(err => console.error(err));
-      axios.post('http://138.197.29.193:3001/users/app/save-apk', data)
-      .then(res => {
-        console.log(res);
+        this.saveApkFile(fileData, userId);
       })
       .catch(err => console.error(err));
     }
