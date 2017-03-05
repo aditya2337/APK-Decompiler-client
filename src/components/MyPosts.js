@@ -23,23 +23,21 @@ class MyPosts extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!Array.isArray(nextProps.posts)) {
-      const id = nextProps.posts.user[0]._id;
-      if (nextProps.selectedSession !== this.props.selectedSession) {
-        fetch(`http://138.197.29.193:3001/users/app/my-apps/${id}`, {
-          method: 'GET',
-          credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(json => {
-          console.log(json);
-        });
-      }
-      if (!nextProps.posts.authenticated) {
-        this.setState({ isLoggedIn: false });
-      }
-      Authenticate.isFetching = nextProps.isFetching;
+    const id = nextProps.posts.user[0]._id;
+    if (nextProps.selectedSession !== this.props.selectedSession) {
+      fetch(`http://138.197.29.193:3001/users/app/my-apps/${id}`, {
+        method: 'GET',
+        credentials: 'include'
+      })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+      });
     }
+    if (!nextProps.posts.authenticated) {
+      this.setState({ isLoggedIn: false });
+    }
+    Authenticate.isFetching = nextProps.isFetching;
   }
 
   render () {
