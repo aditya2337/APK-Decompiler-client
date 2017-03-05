@@ -57,13 +57,13 @@ export default class FileTree extends Component {
 
   render () {
     const { directory } = this.props;
-    const { redirectToRefferer, fileData, filePath } = this.state;
+    const { redirectToRefferer, fileData, selectedFile } = this.state;
 
     if (redirectToRefferer) {
       return (
         <Redirect to={{
           pathname: '/edit-file',
-          state: {fileData, filePath}
+          state: {fileData, selectedFile}
         }} />
       );
     }
