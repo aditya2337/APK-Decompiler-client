@@ -68,7 +68,7 @@ class AddApp extends Component {
   }
 
   render () {
-    const { isPosting, isPosted, directory, redirectToRefferer, fileData, isDecompiling } = this.state;
+    const { isPosting, isPosted, directory, isDecompiling } = this.state;
     const { isFetching } = this.props;
     const fileStructure = (isDecompiling) ? (
       <h1>Please wait while we decompile your app..</h1>
@@ -79,15 +79,6 @@ class AddApp extends Component {
     if (isPosted) {
       return (
         <Redirect to={from} />
-      );
-    }
-
-    if (redirectToRefferer) {
-      return (
-        <Redirect to={{
-          pathname: '/edit-file',
-          state: fileData
-        }} />
       );
     }
 

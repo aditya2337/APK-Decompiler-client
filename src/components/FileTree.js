@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NestedFileTreeView from 'react-nested-file-tree';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 export default class FileTree extends Component {
@@ -55,7 +56,18 @@ export default class FileTree extends Component {
   }
 
   render () {
-    const directory = this.props.directory;
+    const { directory } = this.props;
+    const { redirectToRefferer, fileData } = this.state;
+
+    if (redirectToRefferer) {
+      return (
+        <Redirect to={{
+          pathname: '/edit-file',
+          state: fileData
+        }} />
+      );
+    }
+
     return (
       <div id='container_id'>
         <NestedFileTreeView
