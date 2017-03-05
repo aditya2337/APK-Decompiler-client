@@ -12,7 +12,7 @@ class MyPosts extends Component {
 
     this.state = {
       isLoggedIn: true,
-      tutorials: []
+      apps: []
     };
   }
 
@@ -31,6 +31,9 @@ class MyPosts extends Component {
     .then(response => response.json())
     .then(json => {
       console.log(json);
+      this.setState({
+        apps: json.apps
+      });
     });
     if (!nextProps.posts.authenticated) {
       this.setState({ isLoggedIn: false });
@@ -58,8 +61,8 @@ class MyPosts extends Component {
 
     return (
       <div className='container'>
-        {tutorials.map(tutorial =>
-          <Tutorial title={tutorial.title} imgURI={tutorial.image} key={tutorial._id} fullObject={tutorial} />
+        {tutorials.map(app =>
+          <Tutorial title={app.apk} fullObject={app} />
         )}
       </div>
     );
