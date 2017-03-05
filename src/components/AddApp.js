@@ -71,7 +71,6 @@ class AddApp extends Component {
     this.handleFolderClick = this.handleFolderClick.bind(this);
     this.CustomFolder = this.CustomFolder.bind(this);
     this.CustomFile = this.CustomFile.bind(this);
-    this.saveApkFile = this.saveApkFile.bind(this);
   }
 
   handleFileClick (file) {
@@ -118,14 +117,6 @@ class AddApp extends Component {
     );
   }
 
-  saveApkFile (data) {
-    axios.post('http://138.197.29.193:3001/users/app/save-apk', data)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => console.error(err));
-  }
-
   handleSubmit (e) {
     e.preventDefault();
     console.log(this.props.posts.user[0]._id);
@@ -142,6 +133,11 @@ class AddApp extends Component {
       .then(res => {
         this.setState({directory: res.data, isDecompiling: false});
         this.saveApkFile(data);
+      })
+      .catch(err => console.error(err));
+      axios.post('http://138.197.29.193:3001/users/app/save-apk', data)
+      .then(res => {
+        console.log(res);
       })
       .catch(err => console.error(err));
     }
