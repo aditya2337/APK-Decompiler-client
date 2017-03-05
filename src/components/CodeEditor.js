@@ -44,7 +44,7 @@ export default class CodeEditor extends Component {
     return (
       <div className='container'>
         <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor' />
-        <RaisedButton label='Save file' primary={true} onclick={() => this.handleCode(this.updateCode)} />
+        <RaisedButton label='Save file' primary={true} onClick={() => this.handleCode(this.updateCode)} />
       </div>
     );
   }
