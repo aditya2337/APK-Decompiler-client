@@ -91,7 +91,7 @@ class AddApp extends Component {
       );
     }
 
-    if (isFetching || isPosting) {
+    if (isFetching) {
       return (
         <div className='container'>
           <CircularProgress size={80} thickness={5} />
