@@ -11,8 +11,8 @@ export default class Tutorial extends Component {
         pathname: '/view-tutorial',
         hash: title,
         state: fullObject
-      }}><Card className='tutorial'>
-        <CardTitle title={title} className='tutorial-media' />
+      }}><Card>
+        <CardTitle title={title} />
       </Card></Link>
     );
   }
