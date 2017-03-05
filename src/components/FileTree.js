@@ -69,7 +69,7 @@ export default class FileTree extends Component {
     }
 
     return (
-      <div id='container_id'>
+      <div id='container_id' className='flex'>
         <NestedFileTreeView
           selectedFilePath={this.state.selectedFile}
           fileClickHandler={this.handleFileClick}
