@@ -119,12 +119,14 @@ class AddApp extends Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    console.log(this.props);
+    console.log(this.props.posts.user[0]._id);
     this.setState({isDecompiling: true});
     const file = this.refs;
+    const userId = this.props.posts.user[0]._id;
     let data = new FormData();
-    var imagedata = document.querySelector("input[type='file']").files[0];
+    const imagedata = document.querySelector("input[type='file']").files[0];
     data.append('file', imagedata);
+    data.append('userId', userId);
     if (file) {
       this.setState({ isPosting: true });
       axios.post('http://138.197.29.193:3001/users/app', data)
