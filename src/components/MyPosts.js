@@ -22,6 +22,7 @@ class MyPosts extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    console.log(nextProps);
     if (!Array.isArray(nextProps.posts)) {
       const id = nextProps.posts.user[0]._id;
       if (nextProps.selectedSession !== this.props.selectedSession) {
