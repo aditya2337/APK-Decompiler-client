@@ -17,12 +17,12 @@ class MyPosts extends Component {
   }
 
   componentWillMount () {
+    console.log(this.props);
     const { dispatch } = this.props;
     dispatch(fetchSessionIfNeeded('androiditya@gmail.com'));
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps);
     if (!Array.isArray(nextProps.posts)) {
       const id = nextProps.posts.user[0]._id;
       if (nextProps.selectedSession !== this.props.selectedSession) {
