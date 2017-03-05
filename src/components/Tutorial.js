@@ -15,8 +15,10 @@ export default class Tutorial extends Component {
 
   componentWillMount () {
     console.log(this.props);
-    axios.get(`http://138.197.29.193:3001/users/app/view`)
+    const { fullObject } = this.props;
+    axios.get(`http://138.197.29.193:3001/users/app/view?file=${fullObject.apk}&userId=${fullObject.userId}`)
       .then(res => console.log(res))
+      .catch(err => console.log(err))
     ;
   }
 
