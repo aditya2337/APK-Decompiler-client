@@ -52,7 +52,6 @@
 }
 
 .fl-dir-row {
-  display: flex;
   flex-direction: column;
 }
 
