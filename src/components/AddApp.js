@@ -95,13 +95,13 @@ class AddApp extends Component {
       );
     }
 
-    // if (isFetching) {
-    //   return (
-    //     <div className='flex sc-size'>
-    //       <CircularProgress size={80} thickness={5} />
-    //     </div>
-    //   );
-    // }
+    if (isFetching) {
+      return (
+        <div className='flex sc-size'>
+          <CircularProgress size={80} thickness={5} />
+        </div>
+      );
+    }
 
     return (
       <div className='container flex'>
