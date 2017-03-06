@@ -10,7 +10,9 @@ export default class TuroialView extends Component {
     const fileDirectory = this.props.location.state;
 
     return (
-      <FileTree directory={fileDirectory} />
+      <div className='container'>
+        <FileTree directory={fileDirectory} />
+      </div>
     );
   }
 }

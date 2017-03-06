@@ -51,7 +51,7 @@ class MyPosts extends Component {
 
     if (isFetching) {
       return (
-        <div>
+        <div className='flex sc-size'>
           <CircularProgress size={80} thickness={5} />
         </div>
       );
