@@ -14,7 +14,6 @@ export default class FileTree extends Component {
     };
 
     this.handleFileClick = this.handleFileClick.bind(this);
-    this.handleFolderClick = this.handleFolderClick.bind(this);
     this.CustomFolder = this.CustomFolder.bind(this);
     this.CustomFile = this.CustomFile.bind(this);
   }
@@ -26,10 +25,6 @@ export default class FileTree extends Component {
       redirectToRefferer: true
     }));
     this.setState({ selectedFile: file.path });
-  }
-
-  handleFolderClick (folderName) {
-    console.log(folderName);
   }
 
   CustomFolder (props) {
@@ -73,7 +68,6 @@ export default class FileTree extends Component {
         <NestedFileTreeView
           selectedFilePath={this.state.selectedFile}
           fileClickHandler={this.handleFileClick}
-          folderClickHandler={this.folderClickHandler}
           fileTemplate={this.CustomFile}
           folderTemplate={this.CustomFolder}
           directory={directory} />

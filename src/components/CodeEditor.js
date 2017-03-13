@@ -19,7 +19,6 @@ export default class CodeEditor extends Component {
   }
 
   componentWillMount () {
-    console.log(this.props.location.state);
     if (this.props.location.state) {
       this.setState({code: this.props.location.state.fileData});
     }
@@ -34,7 +33,11 @@ export default class CodeEditor extends Component {
   handleCode (code) {
     const { selectedFile } = this.props.location.state;
     var data = new FormData();
-    axios.post(`http://138.197.29.193:3002/users/app/save-code?updatedCode=${code}&filePath=${selectedFile}`, data)
+    data.append('file', selectedFile);
+    axios.post(`http://138.197.29.193:3002/users/app/save-code`, {
+      file: selectedFile,
+      updatedCode: code
+    })
       .then(res => this.setState({redirectToRefferer: true}))
       .catch(err => console.error(err))
     ;
@@ -55,8 +58,16 @@ export default class CodeEditor extends Component {
 
     return (
       <div className='container flex fl-dir-col'>
-        <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor fl-wd' />
-        <RaisedButton label='Save file' primary={true} onClick={() => this.handleCode(code)} className='mt-20' />
+        <form
+          method='post'
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.handleCode(code)
+          }}
+          >
+          <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor fl-wd' />
+          <RaisedButton label='Save file' primary={true} type='submit' className='mt-20' />
+        </form>
       </div>
     );
   }
