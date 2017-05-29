@@ -55,7 +55,7 @@ class AddApp extends Component {
   }
 
   saveApkFile (file, userId) {
-    axios.post(`http://138.197.29.193:3002/users/app/save-apk?file=${file.name}&userId=${userId}`)
+    axios.post(`http://52.15.193.198:3002/users/app/save-apk?file=${file.name}&userId=${userId}`)
     .then(res => {
       console.log();
     })
@@ -63,7 +63,7 @@ class AddApp extends Component {
   }
 
   getDecompiled = (file, userId) => {
-    var evtSource = new EventSource(`http://138.197.29.193:3002/users/app/upload-file/` +
+    var evtSource = new EventSource(`http://52.15.193.198:3002/users/app/upload-file/` +
       `?originalname=${file}&userId=${userId}`);
     evtSource.onmessage = function(e) {
       let message = JSON.parse(e.data);
@@ -79,7 +79,7 @@ class AddApp extends Component {
   }
 
   getTree = (file, userId) => {
-    axios.get(`http://138.197.29.193:3002/users/app/view?file=${file}&userId=${userId}`)
+    axios.get(`http://52.15.193.198:3002/users/app/view?file=${file}&userId=${userId}`)
       .then(res =>  {
         this.setState({directory: res.data, isDecompiling: false})
         this.saveApkFile(file, userId);
@@ -98,7 +98,7 @@ class AddApp extends Component {
     if (fileData) {
       this.timer = setTimeout(() => this.progress(2), 1000);
       this.setState({ isPosting: true, isDecompiling: true });
-      axios.post('http://138.197.29.193:3002/users/app', data)
+      axios.post('http://52.15.193.198:3002/users/app', data)
       .then(res => {
         this.getDecompiled(fileData.name, userId);
       })

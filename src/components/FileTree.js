@@ -19,7 +19,7 @@ export default class FileTree extends Component {
   }
 
   handleFileClick (file) {
-    axios.get(`http://138.197.29.193:3002/users/app/get-code?filePath=${file.path}`)
+    axios.get(`http://52.15.193.198:3002/users/app/get-code?filePath=${file.path}`)
     .then(res => this.setState({
       fileData: res.data,
       redirectToRefferer: true

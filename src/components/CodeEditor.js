@@ -34,7 +34,7 @@ export default class CodeEditor extends Component {
     const { selectedFile } = this.props.location.state;
     var data = new FormData();
     data.append('file', selectedFile);
-    axios.post(`http://138.197.29.193:3002/users/app/save-code`, {
+    axios.post(`http://52.15.193.198:3002/users/app/save-code`, {
       file: selectedFile,
       updatedCode: code
     })
@@ -62,11 +62,11 @@ export default class CodeEditor extends Component {
           method='post'
           onSubmit={(e) => {
             e.preventDefault();
-            this.handleCode(code)
+            this.handleCode(code);
           }}
           >
           <CodeMirror value={code} onChange={this.updateCode} options={options} className='code-editor fl-wd' />
-          <RaisedButton label='Save file' primary={true} type='submit' className='mt-20' />
+          <RaisedButton label='Save file' primary type='submit' className='mt-20' />
         </form>
       </div>
     );
